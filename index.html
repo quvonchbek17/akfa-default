@@ -116,7 +116,7 @@
           <div class="knob"></div>
         </div>
         <div class="door-back">
-         <video class="video" autoplay loop>
+         <video class="video" autoplay loop muted>
           <source src="./assets/videos/vizitka.mp4" type="video/mp4">
          </video>
          <a href="tel:+998904272338" class="btn btn-success">Qo'ng'iroq qilish</a>
@@ -130,6 +130,8 @@
   <script>
    let door = document.querySelector(".open-door")
    let doorFront = document.querySelector(".door-front")
+   let video = document.querySelector(".video")
+   video.play()
    door.addEventListener("click", function(e){
     let text = door.textContent
     if(text == "Eshikni ochish"){
