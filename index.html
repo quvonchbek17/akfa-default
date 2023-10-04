@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Shahzod Akfa</title>
+    <link rel="icon" href="./assets/images/window.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+    body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.door {
+  position: relative;
+  width: 170px;
+  height:270px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+
+}
+.door-front {
+  width: 170px;
+  height:270px;
+  overflow: hidden;
+  transform-origin: left;
+  box-shadow: 30px 0 50px rgba(0,0,0,0.2);
+  position: absolute;
+  background-color: #924500;
+  z-index:1;
+  transition: .5s;
+}
+
+.door-front:before, .door-front:after {
+  content:"";
+  position: absolute;
+  background-color: #924500;
+  width: 105px;
+  height: 75px;
+  border: 10px ridge #b05500;
+  left:22.5px;
+}
+
+.door-front:before {
+  top:25px;
+}
+
+.door-front:after {
+  top:155px;
+}
+.knob {
+  position: absolute;
+  width: 20px;
+  height:30px;
+  background-color: #eeba0b;
+  top:122px;
+  left:145px;
+  border-radius:2px;
+}
+
+.knob:before {
+  content:"";
+  position: absolute;
+  border-radius:50%;
+  background-color: #f1c83c;
+  width:18px;
+  height:18px;
+  left:-1px;
+  box-shadow: 2px 2px rgba(0,0,0,0.2);
+}
+
+.knob:after {
+  content:"";
+  position: absolute;
+  width:4px;
+  height:7px;
+  background-color: #333;
+  top:20px;
+  left:8.5px;
+}
+
+.door-back {
+  position: relative;
+  /* background: linear-gradient(0deg, rgba(193,124,116,1) 13%, rgba(73,88,103,1) 13%, rgba(79,100,124,1) 15%, rgba(87,115,153,1) 15%); */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 10px solid #edf2f4;
+}
+
+.video {
+    width: 100%;
+}
+
+.door-back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+</style>
+  </head>
+  <body>
+    <h1 class="text-primary">Tez kunda</h1>
+    <div class="door">
+        <div class="door-front">
+          <div class="knob"></div>
+        </div>
+        <div class="door-back">
+         <video class="video" autoplay loop>
+          <source src="./assets/videos/vizitka.mp4" type="video/mp4">
+         </video>
+         <a href="tel:+998904272338" class="btn btn-success">Qo'ng'iroq qilish</a>
+        </div>
+      </div>
+
+      <button class="open-door btn btn-info text-white">Eshikni ochish</button>
+  </body>
+
+
+  <script>
+   let door = document.querySelector(".open-door")
+   let doorFront = document.querySelector(".door-front")
+   door.addEventListener("click", function(e){
+    let text = door.textContent
+    if(text == "Eshikni ochish"){
+        door.textContent = "Eshikni yopish"
+        doorFront.style.transform = 'rotateY(-160deg)';
+    } else {
+        door.textContent = "Eshikni ochish"
+        doorFront.style.transform = 'rotateY(0deg)';
+    }
+   })
+  </script>
+</html>
